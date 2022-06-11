@@ -8,7 +8,7 @@ class CrawlImage:
 
         self.jsonConf = JsonConf()
         self.conf = self.jsonConf.load()
-        self.keyword = self.conf.get('keyword')
+        self.keyword = self.conf.get('keyword').strip()
         self.max_download_images = self.conf.get('max_download_images')
         self.savedir = self.conf.get('savedir')
         self.header = self.conf.get('headers')

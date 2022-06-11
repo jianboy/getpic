@@ -81,7 +81,7 @@ class CrawlImageFromBaidu(CrawlImage):
         pool = ThreadPoolExecutor(max_workers=10)
         for i, picUrl in enumerate(picurls):
             try:
-                pool.submit(self.downloadPic, picUrl, self.savedir +r"/baidu{}.jpg".format(i+1))
+                pool.submit(self.downloadPic, picUrl, self.savedir +r"/baidu_{}_{}.jpg".format(self.keyword[:15], i+1))
                 print('成功下载第%s张图片: %s' % (str(i + 1), str(picUrl)))
             except IOError as e:
                 print('下载第%s张图片时失败: %s' % (str(i + 1), str(picUrl)))
