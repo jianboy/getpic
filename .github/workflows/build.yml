@@ -1,0 +1,65 @@
+name: auto CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-latest]
+        include:
+        - os: ubuntu-latest
+          path: ~/.cache/pip
+        - os: macos-latest
+          path: ~/Library/Caches/pip
+        - os: windows-latest
+          path: ~\AppData\Local\pip\Cache
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Set up Python 3.8
+        id: setup-python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ matrix.path }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.local/share/virtualenvs
+          key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-pipenv-${{ hashFiles('Pipfile.lock') }}
+        
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      
+      - name: Build
+        run: |
+          pyinstaller -D crawl_image.spec
+
+      - name: artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{runner.OS}}-artifact
+          path: |
+            dist/
+    
+      # - name: Publish distribution 📦 to PyPI
+      #   if: startsWith(github.event.ref, 'refs/tags')
+      #   uses: pypa/gh-action-pypi-publish@master
+      #   with:
+      #     user: __token__
+      #     password: ${{ secrets.pypi_password }}
