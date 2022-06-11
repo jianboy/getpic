@@ -44,7 +44,8 @@ jobs:
       
       - name: Build
         run: |
-          pyinstaller -D crawl_image.spec
+          pyinstaller -F -c  -i favicon.ico main.py
+          cp -r conf dist
 
       - name: artifact
         uses: actions/upload-artifact@v2
