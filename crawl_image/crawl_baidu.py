@@ -9,10 +9,8 @@
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import closing
 import re
-from socket import timeout
 from crawl_image.crawl_image import CrawlImage
 from crawl_image import api
-import os
 
 from crawl_image.libs.download_progress import DownloadProgress
 
@@ -42,7 +40,7 @@ class CrawlImageFromBaidu(CrawlImage):
                 print('已达到设置的最大下载数量%s' % self.max_download_images)
                 break
 
-        self.downloadPic(list(set(allPicUrls)))
+        self.downloadPictures(list(set(allPicUrls)))
 
     def getPicList(self, pageUrl):
         if not pageUrl:
@@ -69,7 +67,7 @@ class CrawlImageFromBaidu(CrawlImage):
             if(os.path.exists(fileName) and os.path.getsize(fileName) == contentSize):
                 print("跳过" + fileName)
             else:
-                progress = DownloadProgress.DownloadProgress(fileName, total=contentSize, unit="KB",
+                progress = DownloadProgress(fileName, total=contentSize, unit="KB",
                                                              chunk_size=chunkSize, run_status="downloading", fin_status="downloaded")
                 if not os.path.exists(os.path.dirname(fileName)):
                     os.makedirs(os.path.dirname(fileName))
