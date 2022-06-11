@@ -11,6 +11,7 @@ from crawl_image.crawl_image import CrawlImage
 from crawl_image import api
 import os
 
+
 class CrawlImageFromBaidu(CrawlImage):
     def __init__(self, keyword="boy", max_download_images=100, savedir=r"data/baidu/"):
         super().__init__()
@@ -55,7 +56,15 @@ class CrawlImageFromBaidu(CrawlImage):
             next_page_url[0] if next_page_url else ''
         return pic_urls, next_page_url
 
-    def downPic(self, pic_urls):
+    def downPIc(self, pic: str):
+        '''
+        download a picture'''
+        try:
+            res=self.sess.get(pic,timeout=5)
+            
+        pass
+
+    def downPic(self, pic_urls: list):
         pic_urls = pic_urls[:self.max_download_images]
         for i, pic_url in enumerate(pic_urls):
             try:
