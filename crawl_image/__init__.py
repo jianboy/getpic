@@ -10,13 +10,14 @@ from crawl_image.crawl_baidu import CrawlImageFromBaidu
 from crawl_image.crawl_google import CrawlImageFromGoogle
 from crawl_image.libs.json_conf import JsonConf
 
+
 def main():
     '''
     --keyword "cat" --engine "google"
     '''
     engine = JsonConf().load().get('engine')
-    if(engine == 'baidu'):
+    if engine == 'baidu':
         crawl_image = CrawlImageFromBaidu()
-    elif(engine == 'google'):
+    elif engine == 'google':
         crawl_image = CrawlImageFromGoogle()
     crawl_image.run()

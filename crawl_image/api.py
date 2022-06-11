@@ -7,5 +7,5 @@
 @Desc    :   api interface
 '''
 
-baidu_search_image=r"https://image.baidu.com/search/index?tn=baiduimage&word=%s"
+baidu_search_image = r"http://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word="
 google_serach_image=r"https://www.google.com/search?q=%s&tbm=isch"
