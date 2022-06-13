@@ -8,6 +8,8 @@
 '''
 from crawl_image.crawl_baidu import CrawlImageFromBaidu
 from crawl_image.crawl_google import CrawlImageFromGoogle
+from crawl_image.crawl_so import CrawlImageFromSo
+from crawl_image.crawl_sogou import CrawlImageFromSogou
 from crawl_image.libs.json_conf import JsonConf
 
 
@@ -20,4 +22,8 @@ def main():
         crawl_image = CrawlImageFromBaidu()
     elif engine == 'google':
         crawl_image = CrawlImageFromGoogle()
+    elif engine == 'sogou':
+        crawl_image = CrawlImageFromSogou()
+    elif engine == 'so':
+        crawl_image = CrawlImageFromSo()
     crawl_image.run()
