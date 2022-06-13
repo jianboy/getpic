@@ -15,16 +15,10 @@ from urllib.parse import quote
 # browserOptions.add_argument('--proxy-server=ip:port)
 # browser = webdriver.Chrome(chrome_options=browserOptions)
 
-#修改keyword便可以修改搜索关键词
-keyword = '血腥'
-keyword = quote(keyword)
-url = 'https://www.google.com.hk/search?q='+keyword+'&tbm=isch'
-
-
 class CrawlImageFromGoogle(CrawlImage):
     # 初始化
     def __init__(self):
-        self.url = url
+        super().__init__()
         self.browser = self.init_browser()
 
     # 获得Chrome驱动，并访问url
@@ -39,7 +33,7 @@ class CrawlImageFromGoogle(CrawlImage):
         return browser
 
     #下载图片
-    def download_images(self,savedir, round=20):
+    def downloadPic(self,savedir, round=20):
         #picpath = './cat'
         # 路径不存在时创建一个
         #if not os.path.exists(picpath): os.makedirs(picpath)
@@ -88,7 +82,7 @@ class CrawlImageFromGoogle(CrawlImage):
                                     print('failure')
 
     def run(self, savedir):
-        self.download_images(savedir,200)#可以修改爬取的页面数，基本10页是100多张图片
+        self.downloadPic(savedir,200)#可以修改爬取的页面数，基本10页是100多张图片
         self.browser.close()
         print("爬取完成")
 

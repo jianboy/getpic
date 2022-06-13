@@ -1,7 +1,7 @@
 {
     "keyword": "仿古建筑",
-    "engine": "baidu",
-    "max_download_images": 100,
+    "engine": "sogou",
+    "max_download_images": 20,
     "headers": {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.192 Safari/537.36"
     },
