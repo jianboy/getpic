@@ -1,0 +1,13 @@
+### 全局变量
+@hostname = baidu.com
+@port = 80
+@host = https://{{hostname}}
+@contentType = application/json
+@createdAt = {{$datetime iso8601}}
+@useragent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36
+@accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+
+
+### 获取自己的repos
+GET http://pic.sogou.com/napi/pc/searchList?mode=2&start=0&xml_len=48&query=%E7%BE%8E%E5%A5%B3 HTTP/1.1
+

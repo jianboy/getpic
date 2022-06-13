@@ -10,7 +10,6 @@ from crawl_image.crawl_image import CrawlImage
 import requests
 import json,re,os,sys
 
-CrawlImage
 class CrawlImageFromSo(CrawlImage):
     def __init__(self):
         super().__init__()
