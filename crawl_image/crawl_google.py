@@ -15,17 +15,10 @@ from urllib.parse import quote
 # browserOptions.add_argument('--proxy-server=ip:port)
 # browser = webdriver.Chrome(chrome_options=browserOptions)
 
-#修改keyword便可以修改搜索关键词
-keyword = '血腥'
-keyword = quote(keyword)
-url = 'https://www.google.com.hk/search?q='+keyword+'&tbm=isch'
-
-
 class CrawlImageFromGoogle(CrawlImage):
     # 初始化
     def __init__(self):
         super().__init__()
-        self.url = url
         self.browser = self.init_browser()
 
     # 获得Chrome驱动，并访问url

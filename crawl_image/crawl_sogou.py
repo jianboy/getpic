@@ -8,6 +8,9 @@
 '''
 import imp
 from crawl_image.crawl_image import CrawlImage
+from crawl_image.libs.download_progress import DownloadProgress
+from concurrent.futures import ThreadPoolExecutor
+from contextlib import closing
 from crawl_image import api
 import requests
 import json
@@ -19,6 +22,7 @@ import sys
 class CrawlImageFromSogou(CrawlImage):
     def __init__(self):
         super().__init__()
+        self.imageList=[]
         self.session = requests.Session()
         self.session.headers.update(
             {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'})
@@ -31,24 +35,42 @@ class CrawlImageFromSogou(CrawlImage):
 
     def getImageList(self):
         pageSize = 48
-        imageList=[]
+        
         for page in range(self.max_download_images // pageSize):
             url = api.sogou_getImage % (page*pageSize, self.keyword)
             try:
                 response = self.session.get(url)
-                imageList.extend(json.loads(response.text)['imgs'])
+                self.imageList.extend(json.loads(response.text)['imgs'])
             except Exception as e:
                 print(e)
                 continue
-        return imageList
-
-    def downloadImage(self, url, filename):
-        response = self.session.get(url)
-        with open(filename, 'wb') as f:
-            f.write(response.content)
         
-    def run():
-        pass
 
-if __name__ == '__main__':
-    CrawlImageFromSogou().getImageList(48)
+
+    def downloadPic(self, picUrl: str,fileName: str):
+        '''
+        download a picture
+        '''
+        with closing(self.sess.get(url=picUrl, stream=True, timeout=10)) as response:
+            chunkSize = 1024
+            contentSize = int(response.headers["content-length"])
+            if(os.path.exists(fileName) and os.path.getsize(fileName) == contentSize):
+                print("跳过" + fileName)
+            else:
+                progress = DownloadProgress(fileName, total=contentSize, unit="KB",
+                                                             chunk_size=chunkSize, run_status="downloading", fin_status="downloaded")
+                if not os.path.exists(os.path.dirname(fileName)):
+                    os.makedirs(os.path.dirname(fileName))
+                with open(fileName, "wb") as file:
+                    for data in response.iter_content(chunk_size=chunkSize):
+                        file.write(data)
+                        progress.refresh(count=len(data))
+        
+    def run(self):
+        self.getImageList()
+
+        # download pictures
+        with ThreadPoolExecutor(max_workers=10) as executor:
+            for image in self.imageList:
+                executor.submit(self.downloadPic, image['url'], "sogou_"+image['name'])
+
