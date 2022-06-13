@@ -15,7 +15,8 @@ google_serach_image=r"https://www.google.com/search?q=%s&tbm=isch"
 
 # so
 so_host=r"https://image.so.com/"
-so_search_image=r"https://image.so.com/zjl?ch=%s&sn=%s&list=%s"
+so_search_image=r"https://image.so.com/j?callback=jQuery183028769737744873414_1655094505325&q=%E7%BE%8E%E5%A5%B3&qtag=&pd=1&pn=60&correct=%E7%BE%8E%E5%A5%B3&adstar=0&tab=all&sid=8499b4c02249a5d86b570ed71c0eea37&ras=1&cn=0&gn=0&kn=50&crn=0&bxn=20&cuben=0&pornn=0&manun=0&src=srp&sn=130&ps=96&pc=96&_=1655094561112"
+# so_search_image=r"https://image.so.com/zjl?ch=%s&sn=%s&list=%s"
 
 # sogou
 sogou_host=r"http://pic.sogou.com"
