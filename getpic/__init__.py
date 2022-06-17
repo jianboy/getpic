@@ -11,20 +11,20 @@ from getpic.crawl_google import CrawlImageFromGoogle
 from getpic.crawl_so import CrawlImageFromSo
 from getpic.crawl_sogou import CrawlImageFromSogou
 from getpic.libs.json_conf import JsonConf
-
+import os,sys
 
 def main():
     '''
-    --keyword "cat" --engine "google"
+    getpic cat 20
     '''
     # check conf/config.json is exist
     desc = '''
     ||||||||||||||||||||||||| Image Downloader ||||||||||||||||||||||||||||
 
         # Usage:
-            1. double click to run: ImageDownloader.exe
-            2。eg: use baidu to download 20 "house" pictures, please input:
-                baidu 20 house
+            method 1: double click to run: ImageDownloader.exe
+            method 2: eg: download 20 "cat" pictures, please input:
+                getpic cat 20
 
         # Cantant Us:
             Wechat: ab3255
@@ -32,17 +32,17 @@ def main():
         
     ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
     '''
+    print(desc)
     if not os.path.exists('conf/config.json'):
         # read args from command line
-        if len(sys.argv) >= 3:
-            engine=sys.argv[1]
-            max_download_images=sys.argv[2]
-            keyword=sys.argv[3]
+        if len(sys.argv) >= 2:
+            engine="baidu"
         else:
-            input("eg: baidu 20 cat")
+            print("params error,eg: getpic cat 20\n")
             sys.exit(1)
     else:
         engine = JsonConf().load().get('engine')
+    print(engine+"--------------------")
     if engine == 'baidu':
         crawl_image = CrawlImageFromBaidu()
     elif engine == 'google':

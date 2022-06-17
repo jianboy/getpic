@@ -1,19 +1,29 @@
+from contextlib import closing
+import os
+import sys
 import requests
 from getpic.libs.json_conf import JsonConf
-
+from getpic.libs.download_progress import DownloadProgress
 
 class CrawlImage:
     def __init__(self):
         self.sess = requests.Session()
-
-        self.jsonConf = JsonConf()
-        self.conf = self.jsonConf.load()
-        
-        self.keyword = self.conf.get('keyword').strip()
-        self.max_download_images = self.conf.get('max_download_images')
-        self.savedir = self.conf.get('savedir')
-        self.header = self.conf.get('headers')
-        self.sess.headers.update(self.header)
+        if not os.path.exists('conf/config.json'):
+            self.keyword = sys.argv[1]
+            try:
+                self.max_download_images = int(sys.argv[2])
+            except ValueError as e:
+                self.max_download_images = 20
+            self.savedir = r"data/"
+        else:
+            self.jsonConf = JsonConf()
+            self.conf = self.jsonConf.load()
+            
+            self.keyword = self.conf.get('keyword').strip()
+            self.max_download_images = self.conf.get('max_download_images')
+            self.savedir = self.conf.get('savedir')
+            self.header = self.conf.get('headers')
+            self.sess.headers.update(self.header)
 
     def downloadPic(self, picUrl: str, fileName: str):
         '''

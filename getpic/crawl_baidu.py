@@ -8,14 +8,13 @@
 '''
 from concurrent.futures import ThreadPoolExecutor
 import re
+import os
 from getpic.crawl_image import CrawlImage
 from getpic import api
-import os
-from getpic.libs.download_progress import DownloadProgress
 
 
 class CrawlImageFromBaidu(CrawlImage):
-    def __init__(self, keyword="boy", max_download_images=100, savedir=r"data/baidu/"):
+    def __init__(self, keyword="boy", max_download_images=100, savedir=r"data/"):
         super().__init__()
 
     def run(self):

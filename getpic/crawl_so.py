@@ -6,20 +6,17 @@
 @License :   Copyright © 2017-2022 liuyuqi. All Rights Reserved.
 @Desc    :   
 '''
+from concurrent.futures import ThreadPoolExecutor
 from getpic.crawl_image import CrawlImage
-import requests
-import json
-import re
-import os
-import sys
+
 
 
 class CrawlImageFromSo(CrawlImage):
     def __init__(self):
         super().__init__()
-        pass
+        self.imageList= []
 
-    def getImageList(slef):
+    def getImageList(self):
         pass
 
     def run(self):
