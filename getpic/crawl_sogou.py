@@ -6,9 +6,13 @@
 @License :   Copyright © 2017-2022 liuyuqi. All Rights Reserved.
 @Desc    :   
 '''
-from crawl_image.crawl_image import CrawlImage
+import imp
+from getpic.crawl_image import CrawlImage
+from getpic.libs.download_progress import DownloadProgress
 from concurrent.futures import ThreadPoolExecutor
-from crawl_image import api
+from contextlib import closing
+from getpic import api
+import requests
 import json
 
 

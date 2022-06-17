@@ -1,7 +1,5 @@
-from contextlib import closing
-from crawl_image.libs.download_progress import DownloadProgress
-import requests,os
-from crawl_image.libs.json_conf import JsonConf
+import requests
+from getpic.libs.json_conf import JsonConf
 
 
 class CrawlImage:
