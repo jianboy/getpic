@@ -6,7 +6,7 @@
 @License :   Copyright © 2017-2022 liuyuqi. All Rights Reserved.
 @Desc    :   
 '''
-from crawl_image.crawl_image import CrawlImage
+from getpic.crawl_image import CrawlImage
 import requests
 import json,re,os,sys
 

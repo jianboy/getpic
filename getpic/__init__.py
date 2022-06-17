@@ -6,11 +6,11 @@
 @License :   Copyright © 2017-2022 liuyuqi. All Rights Reserved.
 @Desc    :   main
 '''
-from crawl_image.crawl_baidu import CrawlImageFromBaidu
-from crawl_image.crawl_google import CrawlImageFromGoogle
-from crawl_image.crawl_so import CrawlImageFromSo
-from crawl_image.crawl_sogou import CrawlImageFromSogou
-from crawl_image.libs.json_conf import JsonConf
+from getpic.crawl_baidu import CrawlImageFromBaidu
+from getpic.crawl_google import CrawlImageFromGoogle
+from getpic.crawl_so import CrawlImageFromSo
+from getpic.crawl_sogou import CrawlImageFromSogou
+from getpic.libs.json_conf import JsonConf
 
 
 def main():

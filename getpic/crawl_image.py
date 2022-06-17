@@ -1,5 +1,5 @@
 import requests
-from crawl_image.libs.json_conf import JsonConf
+from getpic.libs.json_conf import JsonConf
 
 
 class CrawlImage:

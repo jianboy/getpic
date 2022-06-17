@@ -9,10 +9,10 @@
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import closing
 import re
-from crawl_image.crawl_image import CrawlImage
-from crawl_image import api
+from getpic.crawl_image import CrawlImage
+from getpic import api
 import os
-from crawl_image.libs.download_progress import DownloadProgress
+from getpic.libs.download_progress import DownloadProgress
 
 
 class CrawlImageFromBaidu(CrawlImage):
