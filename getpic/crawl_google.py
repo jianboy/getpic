@@ -6,7 +6,7 @@ from mimetypes import init
 from selenium import webdriver
 import time
 import os
-from crawl_image.crawl_image import CrawlImage
+from getpic.crawl_image import CrawlImage
 import requests
 from urllib.parse import quote
 

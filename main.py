@@ -7,7 +7,7 @@
 @Desc    :   None
 '''
 
-from crawl_image import main
+from getpic import main
 
 if __name__=='__main__':
     main()

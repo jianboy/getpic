@@ -7,16 +7,14 @@
 @Desc    :   baidu image search
 '''
 from concurrent.futures import ThreadPoolExecutor
-from contextlib import closing
 import re
-from crawl_image.crawl_image import CrawlImage
-from crawl_image import api
 import os
-from crawl_image.libs.download_progress import DownloadProgress
+from getpic.crawl_image import CrawlImage
+from getpic import api
 
 
 class CrawlImageFromBaidu(CrawlImage):
-    def __init__(self, keyword="boy", max_download_images=100, savedir=r"data/baidu/"):
+    def __init__(self, keyword="boy", max_download_images=100, savedir=r"data/"):
         super().__init__()
 
     def run(self):
@@ -56,25 +54,6 @@ class CrawlImageFromBaidu(CrawlImage):
         next_page_url = 'http://image.baidu.com' + \
             next_page_url[0] if next_page_url else ''
         return pic_urls, next_page_url
-
-    def downloadPic(self, picUrl: str,fileName: str):
-        '''
-        download a picture
-        '''
-        with closing(self.sess.get(url=picUrl, stream=True, timeout=10)) as response:
-            chunkSize = 1024
-            contentSize = int(response.headers["content-length"])
-            if(os.path.exists(fileName) and os.path.getsize(fileName) == contentSize):
-                print("跳过" + fileName)
-            else:
-                progress = DownloadProgress(fileName, total=contentSize, unit="KB",
-                                                             chunk_size=chunkSize, run_status="downloading", fin_status="downloaded")
-                if not os.path.exists(os.path.dirname(fileName)):
-                    os.makedirs(os.path.dirname(fileName))
-                with open(fileName, "wb") as file:
-                    for data in response.iter_content(chunk_size=chunkSize):
-                        file.write(data)
-                        progress.refresh(count=len(data))
 
     def downloadPictures(self, picurls: list):
         picurls = picurls[:self.max_download_images]
