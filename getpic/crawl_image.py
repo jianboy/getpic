@@ -4,10 +4,17 @@ import sys
 import requests
 from getpic.libs.json_conf import JsonConf
 from getpic.libs.download_progress import DownloadProgress
+import argparse
 
 class CrawlImage:
     def __init__(self):
+        self.parser = argparse.ArgumentParser(description="getpic for builtin configs")
+        self.parser.add_argument(
+            "--config", default="conf/config.json", type = str, help="path to config file")
+        self.parser.add_argument("--keyword",type=str,default="baidu",help="search engine")
+        self.parser.add_argument("--num",type=int,default=10,help="download how many picture")
         self.sess = requests.Session()
+        # 判断是否存在配置文件，否则命令行模式执行
         if not os.path.exists('conf/config.json'):
             self.keyword = sys.argv[1]
             try:
