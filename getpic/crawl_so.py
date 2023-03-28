@@ -29,4 +29,4 @@ class CrawlImageFromSo(CrawlImage):
                 fileName = self.savedir + \
                     "sogou_{}_{}".format(
                         self.keyword, str(image['index']+1)) + ".jpg"
-                executor.submit(self.downloadPic, image['picUrl'], fileName)
+                executor.submit(self.download_pic, image['picUrl'], fileName)

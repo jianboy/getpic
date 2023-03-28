@@ -17,4 +17,7 @@ pip install -r requestments.txt
 python main.py
 ```
 
-
+```
+pip install getpic
+getpic cat 20
+```
