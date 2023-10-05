@@ -7,6 +7,8 @@ from getpic.libs.download_progress import DownloadProgress
 import argparse
 
 class CrawlImage:
+    ''' base crawl class for image '''
+    
     def __init__(self):
         self.parser = argparse.ArgumentParser(description="getpic for builtin configs")
         self.parser.add_argument(

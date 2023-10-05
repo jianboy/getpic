@@ -14,6 +14,8 @@ from getpic import api
 
 
 class CrawlImageFromBaidu(CrawlImage):
+    ''' baidu download '''
+    
     def __init__(self, keyword="boy", max_download_images=100, savedir=r"data/"):
         super().__init__()
 
