@@ -16,6 +16,8 @@ from urllib.parse import quote
 # browser = webdriver.Chrome(chrome_options=browserOptions)
 
 class CrawlImageFromGoogle(CrawlImage):
+    ''' google download '''
+    
     # 初始化
     def __init__(self):
         super().__init__()

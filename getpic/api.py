@@ -22,3 +22,4 @@ so_search_image=r"https://image.so.com/j?callback=jQuery183028769737744873414_16
 sogou_host=r"http://pic.sogou.com"
 sogou_setBigImage = r"http://pb.sogou.com/cl.gif?uigs_productid=pic&ua=Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F102.0.5005.63%20Safari%2F537.36%20Edg%2F102.0.1245.39&pagetype=searchlist_page&type=filter_module&stype=filter_bigsize&_t=1655086816719&_r=741&uigs_st=0"
 sogou_getImage="http://pic.sogou.com/napi/pc/searchList?mode=2&start=%d&xml_len=48&query=%s"
+

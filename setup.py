@@ -10,7 +10,6 @@ setup(
     author="lyq",
     author_email='liuyuqi.gov@msn.cn',
     url="https://github.com/jianboy/getpic",
-    description='Crawl image from Google or Baidu search engine',
     packages=find_packages(exclude=["tests*"]),
     install_requires=[
         str(r)
