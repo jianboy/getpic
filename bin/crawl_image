@@ -1,5 +1,5 @@
 #!/bin/env python
-from crawl_image import main
+from getpic import Getpic
 
 if __name__=='__main__':
-    main()
+    Getpic().run()

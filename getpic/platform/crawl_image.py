@@ -6,7 +6,7 @@ from getpic.libs.json_conf import JsonConf
 from getpic.libs.download_progress import DownloadProgress
 import argparse
 
-class CrawlImage:
+class BaseCrawlImage:
     ''' base crawl class for image '''
     
     def __init__(self):

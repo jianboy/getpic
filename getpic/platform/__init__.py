@@ -6,6 +6,7 @@
 @License :   Copyright © 2017-2022 liuyuqi. All Rights Reserved.
 @Desc    :   main
 '''
-from .getpic import Getpic
-
-__version__ = '2022.06.13'
+from .crawl_baidu import CrawlImageFromBaidu
+from .crawl_google import CrawlImageFromGoogle
+from .crawl_so import CrawlImageFromSo
+from .crawl_sogou import CrawlImageFromSogou

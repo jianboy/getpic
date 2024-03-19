@@ -6,7 +6,7 @@ from mimetypes import init
 from selenium import webdriver
 import time
 import os
-from getpic.crawl_image import CrawlImage
+from .crawl_image import BaseCrawlImage
 import requests
 from urllib.parse import quote
 
@@ -15,7 +15,7 @@ from urllib.parse import quote
 # browserOptions.add_argument('--proxy-server=ip:port)
 # browser = webdriver.Chrome(chrome_options=browserOptions)
 
-class CrawlImageFromGoogle(CrawlImage):
+class CrawlImageFromGoogle(BaseCrawlImage):
     ''' google download '''
     
     # 初始化

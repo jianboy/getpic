@@ -7,11 +7,11 @@
 @Desc    :   
 '''
 from concurrent.futures import ThreadPoolExecutor
-from getpic.crawl_image import CrawlImage
+from .crawl_image import BaseCrawlImage
 
 
 
-class CrawlImageFromSo(CrawlImage):
+class CrawlImageFromSo(BaseCrawlImage):
     def __init__(self):
         super().__init__()
         self.imageList= []
