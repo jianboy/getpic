@@ -9,11 +9,11 @@
 from concurrent.futures import ThreadPoolExecutor
 import re
 import os
-from getpic.crawl_image import CrawlImage
+from .crawl_image import BaseCrawlImage
 from getpic import api
 
 
-class CrawlImageFromBaidu(CrawlImage):
+class CrawlImageFromBaidu(BaseCrawlImage):
     ''' baidu download '''
     
     def __init__(self, keyword="boy", max_download_images=100, savedir=r"data/"):

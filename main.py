@@ -7,7 +7,7 @@
 @Desc    :   None
 '''
 
-from getpic import main
+from getpic import Getpic
 
 if __name__=='__main__':
-    main()
+    Getpic().run()
