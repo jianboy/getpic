@@ -16,5 +16,3 @@ step2:
 pip install -r requestments.txt
 python main.py
 ```
-
-

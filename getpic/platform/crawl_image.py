@@ -8,7 +8,7 @@ import argparse
 
 class BaseCrawlImage:
     ''' base crawl class for image '''
-    
+
     def __init__(self):
         self.parser = argparse.ArgumentParser(description="getpic for builtin configs")
         self.parser.add_argument(
@@ -27,7 +27,7 @@ class BaseCrawlImage:
         else:
             self.jsonConf = JsonConf()
             self.conf = self.jsonConf.load()
-            
+
             self.keyword = self.conf.get('keyword').strip()
             self.max_download_images = self.conf.get('max_download_images')
             self.savedir = self.conf.get('savedir')

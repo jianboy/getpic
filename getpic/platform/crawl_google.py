@@ -17,7 +17,7 @@ from urllib.parse import quote
 
 class CrawlImageFromGoogle(BaseCrawlImage):
     ''' google download '''
-    
+
     # 初始化
     def __init__(self):
         super().__init__()
@@ -93,4 +93,3 @@ if __name__ == '__main__':
     savedir = r"data/"
     craw = CrawlImageFromGoogle()
     craw.run(savedir)
-

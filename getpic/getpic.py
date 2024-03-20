@@ -4,7 +4,7 @@
 @Contact :   liuyuqi.gov@msn.cn
 @Time    :   2024/03/19 13:57:39
 @License :   Copyright © 2017-2022 liuyuqi. All Rights Reserved.
-@Desc    :   
+@Desc    :
 '''
 from getpic.platform import CrawlImageFromBaidu
 from getpic.platform import CrawlImageFromGoogle
@@ -14,7 +14,7 @@ from getpic.libs.json_conf import JsonConf
 import os,sys
 
 class Getpic(object):
-    
+
     def __init__(self):
         pass
 
@@ -34,7 +34,7 @@ class Getpic(object):
             # Cantant Us:
                 Wechat: ab3255
                 Mail: liuyuqi.gov@msn.cn
-            
+
         ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
         '''
         print(desc)

@@ -10,4 +10,3 @@
 
 ### 获取自己的repos
 GET http://pic.sogou.com/napi/pc/searchList?mode=2&start=0&xml_len=48&query=%E7%BE%8E%E5%A5%B3 HTTP/1.1
-

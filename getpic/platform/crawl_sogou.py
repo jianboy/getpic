@@ -4,7 +4,7 @@
 @Contact :   liuyuqi.gov@msn.cn
 @Time    :   2022/06/13 10:09:01
 @License :   Copyright © 2017-2022 liuyuqi. All Rights Reserved.
-@Desc    :   
+@Desc    :
 '''
 from concurrent.futures import ThreadPoolExecutor
 from .crawl_image import BaseCrawlImage
